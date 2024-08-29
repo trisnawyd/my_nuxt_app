@@ -9,7 +9,7 @@
     </p>
   </div>
   <button
-    @click="selectTab(2)"
+    @click="selectTab('third-page')"
     class="bg-[#01B2C9] rounded-full px-5 py-3 text-white font-semibold"
   >
     Go to third page

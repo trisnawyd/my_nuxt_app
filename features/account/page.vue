@@ -1,17 +1,17 @@
 <template>
   <Tabs :tabs="pageTabs">
     <!-- Slot for Tab 0: Personal Details -->
-    <template #tab-0>
+    <template #first-page>
       <AccountFirstPage />
     </template>
 
     <!-- Slot for Tab 1: Connect Accounts -->
-    <template #tab-1>
+    <template #second-page>
       <AccountSecondPage />
     </template>
 
     <!-- Slot for Tab 2: Security -->
-    <template #tab-2>
+    <template #third-page>
       <AccountThirdPage />
     </template>
   </Tabs>
@@ -20,6 +20,5 @@
 
 <script setup lang="ts">
 import Tabs from "~/components/tab.vue";
-import type { TabItem } from "~/types";
 import { pageTabs } from "./constant/page-items";
 </script>

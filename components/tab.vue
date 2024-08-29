@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="mt-10">
     <!-- Tab Navigation -->
-    <ul class="tab-navigation">
+    <ul class="tab-navigation border-b">
       <li
         v-for="(tab, index) in tabs"
         :key="index"
-        :class="{ active: activeTab === index }"
-        @click="selectTab(index)"
+        :class="{ active: activeTab === tab.url }"
+        @click="selectTab(tab.url)"
       >
         {{ tab.label }}
       </li>
@@ -14,7 +14,7 @@
 
     <!-- Tab Content -->
     <div class="tab-content">
-      <slot :name="`tab-${activeTab}`"></slot>
+      <slot :name="`${activeTab}`"></slot>
     </div>
   </div>
 </template>
@@ -44,7 +44,8 @@ const { activeTab, selectTab } = useTabNavigation(props.tabs);
 }
 
 .tab-navigation li {
-  padding: 10px 20px;
+  padding: 0px 20px;
+  padding-bottom: 8px;
   cursor: pointer;
   border-bottom: 2px solid transparent;
 }
@@ -54,6 +55,6 @@ const { activeTab, selectTab } = useTabNavigation(props.tabs);
 }
 
 .tab-content {
-  margin-top: 20px;
+  margin-top: 32px;
 }
 </style>
