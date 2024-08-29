@@ -1,3 +1,1 @@
-<template>
-  <AccountLayoutBase>Subscription Page</AccountLayoutBase>
-</template>
+<template>Subscription Page</template>

@@ -1,3 +1,3 @@
 <template>
-  <AccountLayoutBase><InvitePage /></AccountLayoutBase>
+  <InvitePage />
 </template>
