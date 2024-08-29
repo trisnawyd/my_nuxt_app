@@ -12,9 +12,7 @@
       <div
         class="px-4 pb-6 md:col-span-9 bg-white md:rounded-2xl md:px-6 md:row-span-7 border shadow"
       >
-        <div>
-          <slot></slot>
-        </div>
+        <slot></slot>
       </div>
     </div>
   </div>

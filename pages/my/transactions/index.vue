@@ -1,3 +1,1 @@
-<template>
-  <AccountLayoutBase>Transactions Page</AccountLayoutBase>
-</template>
+<template>Transactions Page</template>

@@ -1,3 +1,1 @@
-<template>
-  <AccountLayoutBase>Wishlists Page</AccountLayoutBase>
-</template>
+<template>Wishlists Page</template>

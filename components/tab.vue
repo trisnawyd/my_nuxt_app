@@ -1,7 +1,9 @@
 <template>
   <div class="mt-10">
     <!-- Tab Navigation -->
-    <ul class="tab-navigation border-b">
+    <!-- <ul
+      class="tab-navigation border-b min-w-md overflow-x-scroll md:overflow-x-auto"
+    >
       <li
         v-for="(tab, index) in tabs"
         :key="index"
@@ -10,7 +12,19 @@
       >
         {{ tab.label }}
       </li>
-    </ul>
+    </ul> -->
+    <div class="flex gap-5 border-b">
+      <template v-for="(tab, index) in tabs" :key="index">
+        <NuxtLink
+          :to="{ query: { tab: tab.url } }"
+          :class="[
+            activeTab === tab.url ? 'border-b-[3px]  border-b-[#01B2C9]' : '',
+          ]"
+        >
+          {{ tab.label }}</NuxtLink
+        >
+      </template>
+    </div>
 
     <!-- Tab Content -->
     <div class="tab-content">
@@ -36,18 +50,12 @@ const { activeTab, selectTab } = useTabNavigation(props.tabs);
 </script>
 
 <style scoped>
-.tab-navigation {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
 .tab-navigation li {
   padding: 0px 20px;
   padding-bottom: 8px;
   cursor: pointer;
   border-bottom: 2px solid transparent;
+  display: flex;
 }
 
 .tab-navigation li.active {

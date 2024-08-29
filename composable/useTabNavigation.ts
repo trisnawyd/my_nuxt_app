@@ -3,26 +3,30 @@ import { ref, onMounted } from "vue";
 import { useRouter, useRoute } from "#imports";
 import type { TabItem } from "~/types";
 
-export function useTabNavigation(tabs: TabItem[]) {
-  const activeTab = ref<string>("");
+export function useTabNavigation(tabItems: TabItem[]) {
+  const activeTab = ref<string>(tabItems[0].url);
   const router = useRouter();
   const route = useRoute();
 
-  const selectTab = (url: string) => {
-    activeTab.value = url;
-    router.push({ query: { tab: url } });
+  const selectTab = (tabUrl: string) => {
+    activeTab.value = tabUrl;
+    router.push({ query: { tab: tabUrl } });
   };
 
   onMounted(() => {
-    const query = route.query;
-    let tabQuery = query.tab as string;
+    const queryTab = route.query.tab as string | undefined;
 
-    if (!tabQuery) {
-      tabQuery = tabs[0].url;
+    if (!queryTab) {
+      selectTab(tabItems[0].url);
+    } else {
+      const tabIndex = tabItems.findIndex((tab) => tab.url === queryTab);
+
+      if (tabIndex === -1) {
+        selectTab(tabItems[0].url);
+      } else {
+        selectTab(tabItems[tabIndex].url);
+      }
     }
-
-    const index = tabs.findIndex((tab) => tab.url === tabQuery);
-    index === -1 ? selectTab(tabs[0].url) : selectTab(tabs[index].url);
   });
 
   return {
