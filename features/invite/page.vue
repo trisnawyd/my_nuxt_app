@@ -5,7 +5,7 @@
       <inviteFirstPage />
     </template>
 
-    <!-- Slot for Tab 1: people youve invited -->
+    <!-- Slot for Tab 1: sesuaikan # dengan url pada tiap tabItem -->
     <template #invited-people>
       <inviteSecondPage />
     </template>

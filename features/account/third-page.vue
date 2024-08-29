@@ -6,11 +6,13 @@
       Esse voluptatum pariatur officia corporis facere dicta maiores et ipsum
       dignissimos commodi assumenda eaque saepe, aliquam veritatis excepturi
       nisi alias.
+
+      <!-- implementasi perpindahan page tinggal menggunakan nuxtLink dengan parameter path dan query -->
       <NuxtLink
-        :to="{ path: '/my/account', query: { tab: 'first-page' } }"
+        :to="{ path: '/my/account', query: { tab: 'second-page' } }"
         class="font-bold border-b border-b-gray-700"
       >
-        Go to first page
+        Go to second page
       </NuxtLink>
     </p>
   </div>
@@ -18,7 +20,4 @@
 
 <script setup lang="ts">
 import { pageTabs } from "./constant/page-items";
-import { useTabNavigation } from "~/composable/useTabNavigation";
-
-const tabNavigation = useTabNavigation(pageTabs);
 </script>

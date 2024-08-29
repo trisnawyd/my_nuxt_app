@@ -8,4 +8,16 @@
       nisi alias.
     </p>
   </div>
+  <button
+    @click="selectTab('invited-people')"
+    class="bg-[#01B2C9] rounded-full px-5 py-3 text-white font-semibold mt-10"
+  >
+    Go to People You've Invited
+  </button>
 </template>
+
+<script setup lang="ts">
+import { useTabNavigation } from "~/composable/useTabNavigation";
+import { invitePageTabs } from "./constant/invite-tabs";
+const { selectTab } = useTabNavigation(invitePageTabs);
+</script>

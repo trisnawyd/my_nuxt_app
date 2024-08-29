@@ -9,6 +9,6 @@ export const invitePageTabs: TabItem[] = [
   {
     id: 2,
     label: "People You've Invited",
-    url: "invited-people",
+    url: "invited-people", //akan digunakan untuk parameter selectTab dan juga id pada template
   },
 ];
