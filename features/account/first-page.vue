@@ -8,4 +8,14 @@
       nisi alias.
     </p>
   </div>
+  <button
+    @click="router.push({ query: { tab: 'third-page' } })"
+    class="bg-[#01B2C9] rounded-full px-5 py-3 text-white font-semibold"
+  >
+    Go to third page
+  </button>
 </template>
+
+<script setup lang="ts">
+const router = useRouter();
+</script>

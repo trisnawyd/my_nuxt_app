@@ -15,11 +15,13 @@
       <AccountThirdPage />
     </template>
   </Tabs>
+  <br />
 </template>
 
 <script setup lang="ts">
 import Tabs from "~/components/tab.vue";
 import type { TabItem } from "~/types";
+const router = useRouter();
 
 const pageTabs: TabItem[] = [
   {

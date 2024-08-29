@@ -43,13 +43,17 @@ const selectTab = (id: number) => {
 
 onMounted(() => {
   const query = route.query;
+
   let tabQuery = query.tab;
+
   if (!tabQuery) {
     tabQuery = props.tabs[0].url;
   }
 
   let index = 0;
-  index = props.tabs.findIndex((tab) => tab.url === tabQuery);
+  index = props.tabs.findIndex((tab) => {
+    return tab.url === tabQuery;
+  });
 
   index === -1 ? selectTab(0) : selectTab(index);
 });
