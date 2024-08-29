@@ -6,16 +6,19 @@
       Esse voluptatum pariatur officia corporis facere dicta maiores et ipsum
       dignissimos commodi assumenda eaque saepe, aliquam veritatis excepturi
       nisi alias.
+      <NuxtLink
+        :to="{ path: '/my/account', query: { tab: 'first-page' } }"
+        class="font-bold border-b border-b-gray-700"
+      >
+        Go to first page
+      </NuxtLink>
     </p>
   </div>
-  <button
-    @click="router.push({ query: { tab: 'first-page' } })"
-    class="bg-[#01B2C9] rounded-full px-5 py-3 text-white font-semibold"
-  >
-    Go to first page
-  </button>
 </template>
 
 <script setup lang="ts">
-const router = useRouter();
+import { pageTabs } from "./constant/page-items";
+import { useTabNavigation } from "~/composable/useTabNavigation";
+
+const tabNavigation = useTabNavigation(pageTabs);
 </script>

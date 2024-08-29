@@ -20,10 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { useTabNavigation } from "~/composable/useTabNavigation";
 import type { TabItem } from "~/types";
-const router = useRouter();
-const route = useRoute();
+
 // Define tabs
 const props = defineProps({
   tabs: {
@@ -32,31 +31,8 @@ const props = defineProps({
   },
 });
 
-// Track the active tab
-const activeTab = ref<number>(0);
-
-// Function to select a tab
-const selectTab = (id: number) => {
-  activeTab.value = id;
-  router.push({ query: { tab: props.tabs[id].url } });
-};
-
-onMounted(() => {
-  const query = route.query;
-
-  let tabQuery = query.tab;
-
-  if (!tabQuery) {
-    tabQuery = props.tabs[0].url;
-  }
-
-  let index = 0;
-  index = props.tabs.findIndex((tab) => {
-    return tab.url === tabQuery;
-  });
-
-  index === -1 ? selectTab(0) : selectTab(index);
-});
+// Use the composable for tab navigation
+const { activeTab, selectTab } = useTabNavigation(props.tabs);
 </script>
 
 <style scoped>
@@ -74,7 +50,7 @@ onMounted(() => {
 }
 
 .tab-navigation li.active {
-  border-bottom: 2px solid blue; /* Highlight the active tab */
+  border-bottom: 3px solid #01b2c9; /* Highlight the active tab */
 }
 
 .tab-content {

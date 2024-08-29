@@ -9,7 +9,7 @@
     </p>
   </div>
   <button
-    @click="router.push({ query: { tab: 'third-page' } })"
+    @click="selectTab(2)"
     class="bg-[#01B2C9] rounded-full px-5 py-3 text-white font-semibold"
   >
     Go to third page
@@ -17,5 +17,7 @@
 </template>
 
 <script setup lang="ts">
-const router = useRouter();
+import { useTabNavigation } from "~/composable/useTabNavigation";
+import { pageTabs } from "./constant/page-items";
+const { activeTab, selectTab } = useTabNavigation(pageTabs);
 </script>
