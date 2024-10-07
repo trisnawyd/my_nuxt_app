@@ -4,14 +4,15 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port 5000",
+    "dev": "nuxt dev --port 8000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "nuxt": "^3.12.4",
-    "vue": "latest"
+    "vue": "latest",
+    "vue3-carousel": "^0.3.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
